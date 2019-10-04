@@ -5,16 +5,19 @@ public class Cover {
 	private String name;
 	private int price;
 
+	public Cover() {
+	}
+
 	public Cover(String name, int price) {
 		this.name = name;
 		this.price = price;
 	}
 
-	public String getMaterial() {
+	public String getName() {
 		return name;
 	}
 
-	public void setMaterial(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -24,11 +27,6 @@ public class Cover {
 
 	public void setPrice(int price) {
 		this.price = price;
-	}
-
-	@Override
-	public String toString() {
-		return "Package [material=" + name + ", price=" + price + "]";
 	}
 
 	@Override
@@ -58,7 +56,10 @@ public class Cover {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Package [material=" + name + ", price=" + price + "]";
+	}
 
 }

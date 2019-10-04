@@ -5,27 +5,17 @@ import java.util.List;
 
 public class Bouquet {
 
-	private String name;
 	private List<Flower> bouquet;
-	private Cover pack;
+	private Cover cover;
 
-	public Bouquet(String name) {
-		this.name = name;
+	public Bouquet() {
 		this.bouquet = new ArrayList<Flower>();
-		this.pack = new Cover("", 0);
+		this.cover = new Cover();
 	}
 
 	public Bouquet(List<Flower> bouquet, Cover pack) {
 		this.bouquet = bouquet;
-		this.pack = pack;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		this.cover = pack;
 	}
 
 	public List<Flower> getBouquet() {
@@ -37,11 +27,11 @@ public class Bouquet {
 	}
 
 	public Cover getPack() {
-		return pack;
+		return cover;
 	}
 
 	public void setPack(Cover pack) {
-		this.pack = pack;
+		this.cover = pack;
 	}
 
 	@Override
@@ -49,8 +39,7 @@ public class Bouquet {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((bouquet == null) ? 0 : bouquet.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((pack == null) ? 0 : pack.hashCode());
+		result = prime * result + ((cover == null) ? 0 : cover.hashCode());
 		return result;
 	}
 
@@ -68,35 +57,26 @@ public class Bouquet {
 				return false;
 		} else if (!bouquet.equals(other.bouquet))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (cover == null) {
+			if (other.cover != null)
 				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (pack == null) {
-			if (other.pack != null)
-				return false;
-		} else if (!pack.equals(other.pack))
+		} else if (!cover.equals(other.cover))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Bouquet [name=" + name + ", bouquet=" + takeFlower(bouquet) + ", pack=" + pack + "]";
+		return "Bouquet [bouquet=" + takeFlower(bouquet) + ", pack=" + cover + "]";
 	}
-	
-	private static String takeFlower (List<Flower> bouquet) {
+
+	private static String takeFlower(List<Flower> bouquet) {
 		String flower = new String();
-		for(Flower fl : bouquet) {
+		for (Flower fl : bouquet) {
 			flower = flower.concat(fl.toString() + ", ");
 		}
 		return flower;
-		
-	}
 
-	
-	
-	
+	}
 
 }
